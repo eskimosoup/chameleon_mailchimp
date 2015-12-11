@@ -24,6 +24,7 @@
       </div>
 
       <ul id="modules" class="content-category-list">
+        <%= module_link(content: "Mailchimp Subscription", model: MailchimpSubscription, path: new_mailchimp_subscription_path) %>
         <% if can? :manage, Optimadmin::MenuItem %>
           <li><%= link_to 'Site Navigation', menu_items_path %></li>
         <% end %>

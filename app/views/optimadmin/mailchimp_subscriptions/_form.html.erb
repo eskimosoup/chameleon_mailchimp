@@ -1,0 +1,65 @@
+<%= form_for(@mailchimp_subscription) do |f| %>
+  <% if @mailchimp_subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mailchimp_subscription.errors.count, "error") %>
+        prohibited this mailchimp subscription from being created:</h2>
+
+      <ul>
+        <% @mailchimp_subscription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="tabs prevent-flash">
+    <ul class="tab-list">
+      <li>
+        <a href="#tabs-1">Content</a>
+      </li>
+    </ul>
+
+    <%= field_set_tag nil, id: 'tabs-1' do %>
+      <% if @mailchimp_lists.blank? %>
+        <div class="flash-message error">
+          Mailchimp is not responding, please try again soon
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :list_id %><br>
+        <%= f.select :list_id, @mailchimp_lists.map{|x| [x['name'], x['id']] } if @mailchimp_lists.present? %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email_address %><br>
+        <%= f.text_field :email_address %>
+      </div>
+
+      <div class="field">
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :company %><br>
+        <%= f.text_field :company %>
+      </div>
+
+      <div class="field">
+        <%= f.label :job_title %><br>
+        <%= f.text_field :job_title %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

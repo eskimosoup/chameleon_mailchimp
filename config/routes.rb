@@ -65,4 +65,5 @@ Rails.application.routes.draw do
   #   end
 end
 Optimadmin::Engine.routes.draw do
+  resources :mailchimp_subscriptions, only: [:new, :create]
 end
