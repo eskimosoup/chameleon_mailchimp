@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings
 
   def index
+    redirect_to optimadmin.new_mailchimp_subscription_url
   end
 
   private
