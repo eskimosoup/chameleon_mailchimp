@@ -4,10 +4,9 @@ Rails.application.routes.draw do
     get code, to: 'errors#show', code: code
   end
 
+  mount Optimadmin::Engine => "/admin"
   # This has to be the last route in your list
   match "*path", to: "errors#show", via: :all, code: 404 unless Rails.application.config.consider_all_requests_local
-
-  mount Optimadmin::Engine => "/admin"
   root to: 'application#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
