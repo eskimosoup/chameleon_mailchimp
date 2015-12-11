@@ -24,7 +24,7 @@ module Optimadmin
   private
 
     def set_lists
-       @mailchimp_lists = MailchimpSubscription.lists
+       @mailchimp_lists = MailchimpSubscription.lists.reverse
      end
 
     def mailchimp_subscription_params
