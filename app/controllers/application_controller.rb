@@ -6,17 +6,10 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, with: -> { render_error(404) }
   end
 
-  def render_error(status)
-    respond_to do |format|
-      format.html { render "errors/404", status: status }
-      format.all { render nothing: true, status: status }
-    end
-  end
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :global_site_settings  
+  before_action :global_site_settings
 
   def index
   end
@@ -28,5 +21,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :global_site_settings
 
-
+  def render_error(status)
+    respond_to do |format|
+      format.html { render "errors/#{status}", status: status }
+      format.all { render nothing: true, status: status }
+    end
+  end
 end

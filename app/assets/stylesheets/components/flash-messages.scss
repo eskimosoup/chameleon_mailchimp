@@ -1,0 +1,46 @@
+// Flash messages SCSS
+
+%flash-heading {
+  font-weight: normal;
+}
+
+// Flash
+.flash-message {
+  border: 1px solid $grey;
+  color: $white;
+  margin: 0 0 em(20px);
+
+  h2 {
+    @extend %flash-heading;
+  }
+
+  ul {
+    font-weight: normal;
+  }
+
+  &.notice {
+    background: $red;
+    font-weight: bold;
+  }
+
+  &.error {
+    background: $red;
+    font-weight: bold;
+  }
+
+  &.alert {
+    background: $red;
+    font-weight: bold;
+  }
+}
+
+.error_messages,
+#error_explanation {
+  h2 {
+    @extend %flash-heading;
+  }
+
+  ul {
+    font-weight: normal;
+  }
+}

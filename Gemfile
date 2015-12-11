@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -45,7 +44,6 @@ group :development do
   # gem 'spring'
 end
 
-
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', '~> 4.5.0'
@@ -57,6 +55,7 @@ group :test do
   gem 'capybara', '~> 2.5.0'
   gem 'launchy', '~> 2.4.3'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -71,4 +70,4 @@ end
 
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
 gem 'friendly_id', '~> 5.1.0'
-gem 'therubyracer', platforms: :ruby
+gem 'mailchimp-api'
